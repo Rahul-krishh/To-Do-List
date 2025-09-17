@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To Do List</title>
+  <link rel="icon" href="icon.png" type="image/png">
+
+  <!-- <link rel="stylesheet" href="style.css" type="text/css"> -->
+
+</head>
+<body>
+  
+  <div>
+    <p class="header-text">To Do List 1</p>
+    <input class="js-headerInput header-input" placeholder="To Do activity" type="text">
+    <button class="js-headerAddBtn header-add-btn" onclick="displayActivity()">Add</button>
+  </div>
+
+  <br>
+  <br>
+
+  <div>
+    <p class="header-text">To Do List 2</p>
+    <input class="js-displayHeaderInput header-input" placeholder="To Do activity" type="text">
+    <button class="js-displayHeaderAddBtn header-add-btn" onclick="displayActivity()">Add</button>
+    <div>
+      <p class="js-displayValues"></p>
+    </div>
+  </div>
+
+
+  <script>
+
+    const toDoArray = [];
+
+    function displayActivity() {
+      
+      const activityElement = document.querySelector('.js-displayHeaderInput');
+      const activityName = activityElement.value;
+      toDoArray.push(activityName);
+  
+      console.log(toDoArray);
+
+      activityElement.value = '';
+
+      renderValues();
+
+    }
+
+    function renderValues() {
+
+      const displayElement = document.querySelector('.js-displayValues');
+      let htmlHolder = '';
+      
+      for( let i=0 ; i<toDoArray.length ; i++) {
+        htmlHolder += `<p>${toDoArray[i]}</p>`;
+      }
+
+      displayElement.innerHTML = htmlHolder;
+    }
+
+
+  </script>
+</body>
+</html>
