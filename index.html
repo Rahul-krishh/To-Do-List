@@ -11,8 +11,8 @@
 </head>
 <body>
   
-  <div>
-    <p class="header-text">To Do List 1</p>
+  <!-- <div>
+    <p class="header-text">Todo List 1</p>
     <input class="js-headerInput header-input" placeholder="To Do activity" type="text">
     <button class="js-headerAddBtn header-add-btn" onclick="displayActivity()">Add</button>
   </div>
@@ -21,23 +21,26 @@
   <br>
 
   <div>
-    <p class="header-text">To Do List 2</p>
+    <p class="header-text">Todo List 2</p>
     <input class="js-displayHeaderInput header-input" placeholder="To Do activity" type="text">
     <button class="js-displayHeaderAddBtn header-add-btn" onclick="displayActivity()">Add</button>
     <div>
       <p class="js-displayValues"></p>
     </div>
-  </div>
-  
-  <div>
-    <p class="header-text">To Do List 2</p>
-    <input class="js-displayHeaderInput header-input" placeholder="To Do activity" type="text">
-    <button class="js-displayHeaderAddBtn header-add-btn" onclick="displayActivity()">Add</button>
-    <div>
-      <p class="js-displayValues"></p>
-    </div>
-  </div>
+  </div> -->
 
+  <br>
+  <br>
+
+  <div>
+    <p class="header-text">ToDo List</p>
+    <input class="js-displayHeaderInput header-input" placeholder="To Do activity" type="text">
+    <input class="js-displayDateInput" type="date">
+    <button class="js-displayHeaderAddBtn header-add-btn" onclick="displayActivity()">Add</button>
+    <div>
+      <p class="js-displayValues"></p>
+    </div>
+  </div>
 
   <script>
 
@@ -46,12 +49,16 @@
     function displayActivity() {
       
       const activityElement = document.querySelector('.js-displayHeaderInput');
+      const dateElement = document.querySelector('.js-displayDateInput');
+
       const activityName = activityElement.value;
-      toDoArray.push(activityName);
+      const activityDate = dateElement.value;
+      
+      toDoArray.push({name : activityName, date : activityDate});
   
-      console.log(toDoArray);
 
       activityElement.value = '';
+      dateElement.value = '';
 
       renderValues();
 
@@ -60,10 +67,19 @@
     function renderValues() {
 
       const displayElement = document.querySelector('.js-displayValues');
+
       let htmlHolder = '';
       
       for( let i=0 ; i<toDoArray.length ; i++) {
-        htmlHolder += `<p>${toDoArray[i]}</p>`;
+        const toDoObject = toDoArray[i];
+
+        // const name = toDoObject.name;
+        // const date = toDoObject.date;
+
+        const { name,date} = toDoObject;
+
+        
+        htmlHolder += `<p>${name} ${date} <button class="del-btn" onClick="toDoArray.splice(${i},1); renderValues();">Delete</button></p>`;
       }
 
       displayElement.innerHTML = htmlHolder;
