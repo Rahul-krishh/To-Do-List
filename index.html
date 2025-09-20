@@ -4,86 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>To Do List</title>
-  <link rel="icon" href="icon.png" type="image/png">
+  <link rel="icon" href="icon.jpg" type="image/jpg">
 
-  <!-- <link rel="stylesheet" href="style.css" type="text/css"> -->
+  <link rel="stylesheet" href="style.css" type="text/css">
 
 </head>
 <body>
-  
-  <!-- <div>
-    <p class="header-text">Todo List 1</p>
-    <input class="js-headerInput header-input" placeholder="To Do activity" type="text">
-    <button class="js-headerAddBtn header-add-btn" onclick="displayActivity()">Add</button>
-  </div>
-
-  <br>
-  <br>
 
   <div>
-    <p class="header-text">Todo List 2</p>
-    <input class="js-displayHeaderInput header-input" placeholder="To Do activity" type="text">
-    <button class="js-displayHeaderAddBtn header-add-btn" onclick="displayActivity()">Add</button>
     <div>
-      <p class="js-displayValues"></p>
+      <p class="header-text">To Do List</p>
     </div>
-  </div> -->
-
-  <br>
-  <br>
-
-  <div>
-    <p class="header-text">ToDo List</p>
-    <input class="js-displayHeaderInput header-input" placeholder="To Do activity" type="text">
-    <input class="js-displayDateInput" type="date">
-    <button class="js-displayHeaderAddBtn header-add-btn" onclick="displayActivity()">Add</button>
-    <div>
-      <p class="js-displayValues"></p>
+    <div class="input-flex">
+      <input class="js-displayHeaderInput activity-input" placeholder="To Do activity" type="text">
+      <input class="js-displayDateInput  date-input" type="date">
+      <button class="js-displayHeaderAddBtn header-add-btn" onclick="displayActivity()">Add</button>
     </div>
+    <div class="js-displayValues"></div>
   </div>
 
-  <script>
+  <script src="script.js"></script>
 
-    const toDoArray = [];
-
-    function displayActivity() {
-      
-      const activityElement = document.querySelector('.js-displayHeaderInput');
-      const dateElement = document.querySelector('.js-displayDateInput');
-
-      const activityName = activityElement.value;
-      const activityDate = dateElement.value;
-      
-      toDoArray.push({name : activityName, date : activityDate});
-  
-
-      activityElement.value = '';
-      dateElement.value = '';
-
-      renderValues();
-
-    }
-
-    function renderValues() {
-
-      const displayElement = document.querySelector('.js-displayValues');
-
-      let htmlHolder = '';
-      
-      for( let i=0 ; i<toDoArray.length ; i++) {
-        const toDoObject = toDoArray[i];
-
-        // const name = toDoObject.name;
-        // const date = toDoObject.date;
-
-        const { name,date} = toDoObject;
-
-        
-        htmlHolder += `<p>${name} ${date} <button class="del-btn" onClick="toDoArray.splice(${i},1); renderValues();">Delete</button></p>`;
-      }
-
-      displayElement.innerHTML = htmlHolder;
-    }
-  </script>
 </body>
 </html>
