@@ -17,6 +17,7 @@ body {
 .activity-input, .date-input, .header-add-btn, .del-btn{
   padding: 10px;
   font-size: 15px;
+  cursor: pointer;
 }
 
 .header-add-btn, .del-btn{
