@@ -25,9 +25,10 @@ function renderValues() {
   const displayElement = document.querySelector('.js-displayValues');
 
   let htmlHolder = '';
-  
-  for( let i=0 ; i<toDoArray.length ; i++) {
-    const toDoObject = toDoArray[i];
+
+  toDoArray.forEach( function(toDoObject, i) {
+
+    // const toDoObject = toDoArray[i];  // removed it cuz of the forEach loop
 
     // const name = toDoObject.name;
     // const date = toDoObject.date;
@@ -41,7 +42,7 @@ function renderValues() {
         <div class="date-input">${date}</div> 
         <button class="del-btn" onClick="toDoArray.splice(${i},1); renderValues(); ">Delete</button>
         </div>`;
-  }
+  });
 
   displayElement.innerHTML = htmlHolder;
   
