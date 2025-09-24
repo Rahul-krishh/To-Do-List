@@ -54,12 +54,20 @@ function renderValues() {
     <div class="result-grid-box">
         <div class="activity-input">${name}</div> 
         <div class="date-input">${date}</div> 
-        <button class="del-btn" onClick="toDoArray.splice(${i},1); renderValues(); ">Delete</button>
+        <button class="del-btn js-delete-btn">Delete</button>
         </div>`;
   });
 
   displayElement.innerHTML = htmlHolder;
-  
+
+  document.querySelectorAll('.js-delete-btn').forEach((deleteBtnElement, index) => {
+    deleteBtnElement.addEventListener( 'click' , () => {
+      toDoArray.splice(index,1); 
+      renderValues(); 
+    });
+  });
+
+
   saveToStorage();
 }
 
