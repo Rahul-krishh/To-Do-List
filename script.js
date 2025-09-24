@@ -1,6 +1,18 @@
+const addElement = document.querySelector('.js-displayHeaderAddBtn');
+
+addElement.addEventListener( 'click' , () => {
+  displayActivity();
+})
+
+
+                      // local storage
+
 
 const toDoArray = JSON.parse(localStorage.getItem('toDoList')) || [];
 renderValues();
+
+
+                      // main function
 
 function displayActivity() {
   
@@ -20,13 +32,15 @@ function displayActivity() {
   
 }
 
+                      // display and storage
+
 function renderValues() {
   
   const displayElement = document.querySelector('.js-displayValues');
 
   let htmlHolder = '';
 
-  toDoArray.forEach( function(toDoObject, i) {
+  toDoArray.forEach( (toDoObject, i) => {
 
     // const toDoObject = toDoArray[i];  // removed it cuz of the forEach loop
 

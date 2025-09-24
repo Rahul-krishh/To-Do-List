@@ -20,6 +20,10 @@ body {
   cursor: pointer;
 }
 
+.activity-input {
+  cursor: text;
+}
+
 .header-add-btn, .del-btn{
   color: white;
   background-color: rgb(26, 107, 26);
